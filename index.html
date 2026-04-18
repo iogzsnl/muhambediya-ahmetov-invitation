@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>80 жас мерейтой - Мұхамбедия</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #1a2a44; /* Lighter, more vibrant navy blue */
+            --card-bg: rgba(30, 48, 80, 0.98); /* Rich blue card */
+            --text-color: #ffffff; /* Pure white for maximum clarity */
+            --accent-color: #d4af37; /* Classic vibrant gold */
+            --secondary-text: #adb9c7;
+            --font-head: 'Playfair Display', serif;
+            --font-body: 'Montserrat', sans-serif;
+            
+            /* High-accessibility Fluid Typography */
+            --fs-honorific: clamp(1.2rem, 2vw + 0.6rem, 1.5rem);
+            --fs-h1: clamp(2.5rem, 6vw + 1.2rem, 4.5rem);
+            --fs-age: clamp(1.8rem, 4vw + 1.2rem, 2.8rem);
+            --fs-welcome: clamp(1.2rem, 2vw + 0.6rem, 1.4rem);
+            --fs-main: clamp(1.1rem, 1.5vw + 0.6rem, 1.3rem);
+            --fs-detail-head: clamp(1.3rem, 2vw + 0.6rem, 1.6rem);
+            --fs-detail-sub: clamp(0.9rem, 1vw + 0.5rem, 1rem);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            /* Blue-tinted texture */
+            background-image: url("https://www.transparenttextures.com/patterns/parian-marble.png");
+            background-blend-mode: overlay;
+        }
+
+        .invitation-card {
+            max-width: 850px;
+            width: 100%;
+            background: var(--card-bg);
+            padding: clamp(40px, 10vw, 100px) clamp(25px, 6vw, 70px);
+            position: relative;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 12px;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+        }
+
+        /* Decorative Border */
+        .invitation-card::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            right: 25px;
+            bottom: 25px;
+            border: 2px solid var(--accent-color);
+            opacity: 0.35;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .header-section {
+            margin-bottom: clamp(40px, 6vw, 70px);
+            animation: fadeInDown 1.2s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        .honorific {
+            font-family: var(--font-head);
+            font-style: italic;
+            font-size: var(--fs-honorific);
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            display: block;
+            letter-spacing: 3px;
+        }
+
+        h1 {
+            font-family: var(--font-head);
+            font-size: var(--fs-h1);
+            font-weight: 700;
+            margin-bottom: 5px;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            color: #ffffff;
+        }
+
+        .age {
+            font-family: var(--font-head);
+            font-size: var(--fs-age);
+            color: var(--accent-color);
+            border-top: 2px solid var(--accent-color);
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding: 10px 40px;
+            margin-top: 20px;
+            letter-spacing: 6px;
+        }
+
+        .photo-container {
+            width: 100%;
+            max-width: clamp(260px, 45vw, 350px);
+            aspect-ratio: 3 / 4;
+            margin: 0 auto clamp(40px, 6vw, 70px);
+            position: relative;
+            padding: 15px;
+            background: #ffffff;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            animation: fadeIn 1.8s ease-out;
+            z-index: 2;
+            border-radius: 4px;
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: 1px solid var(--accent-color);
+            display: block;
+        }
+
+        .invitation-text {
+            margin-bottom: clamp(40px, 6vw, 70px);
+            padding: 0 5%;
+            animation: fadeInUp 1.4s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        .welcome-msg {
+            font-weight: 600;
+            font-size: var(--fs-welcome);
+            margin-bottom: 30px;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .main-msg {
+            font-size: var(--fs-main);
+            color: var(--secondary-text);
+            font-style: italic;
+            line-height: 1.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 35px;
+            margin-bottom: clamp(40px, 6vw, 80px);
+            padding: clamp(30px, 5vw, 50px);
+            background: rgba(212, 175, 55, 0.08);
+            animation: fadeIn 2.2s ease-out;
+            position: relative;
+            z-index: 2;
+            border-radius: 8px;
+        }
+
+        @media (min-width: 600px) {
+            .details-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+                text-align: center;
+            }
+            .detail-item:not(:last-child) {
+                border-right: 1px solid rgba(212, 175, 55, 0.2);
+            }
+        }
+
+        .detail-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .detail-item span {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-color);
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .detail-item p {
+            font-family: var(--font-head);
+            font-size: var(--fs-detail-head);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .maps-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.85rem;
+            border-bottom: 1px dashed var(--accent-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .maps-link:hover {
+            color: var(--accent-color);
+            border-bottom-style: solid;
+            transform: translateY(-2px);
+        }
+
+        .footer-section {
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 30px;
+            animation: fadeInUp 1.8s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hosts {
+            font-family: var(--font-head);
+            font-style: italic;
+            font-size: clamp(1rem, 1.2vw + 0.5rem, 1.2rem);
+            letter-spacing: 1px;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Device Specific Polish */
+        @media (max-width: 599px) {
+            .detail-item:not(:last-child) {
+                border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+                padding-bottom: 25px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .invitation-card {
+                max-width: 900px; /* Even grander on large screens */
+            }
+        }
+        /* RSVP Specific Styles */
+        .rsvp-section {
+            margin-top: clamp(40px, 6vw, 70px);
+            padding-top: 40px;
+            border-top: 2px solid rgba(229, 195, 102, 0.4);
+            animation: fadeIn 2.5s ease-out;
+            position: relative;
+            z-index: 2;
+        }
+
+        .rsvp-title {
+            font-family: var(--font-head);
+            font-size: var(--fs-detail-head);
+            color: var(--accent-color);
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+
+        .form-wrapper {
+            background: #ffffff; /* Google Forms are light, so we frame it in white */
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: inset 0 2px 15px rgba(0,0,0,0.3);
+            border: 1px solid var(--accent-color);
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .form-wrapper iframe {
+            border-radius: 8px;
+            display: block;
+        }
+
+        @media (max-width: 480px) {
+            .rsvp-section {
+                margin-top: 30px;
+                padding-top: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="invitation-card">
+        <div class="header-section">
+            <span class="honorific">Ардақты әкеміз</span>
+            <h1>Мұхамбедияға</h1>
+            <div class="age">80 ЖАС</div>
+        </div>
+
+        <div class="photo-container">
+            <img src="ata.jpeg" alt="Мұхамбедия">
+        </div>
+
+        <div class="invitation-text">
+            <p class="welcome-msg">Құрметті ағайын-туыс, құда-жекжат, қымбатты достар!</p>
+            <p class="main-msg">Сіздерді әкеміздің 80 жас мерейтойына арналған ақ дастарханымыздың қонағы болуға шын жүректен шақырамыз.</p>
+        </div>
+
+        <div class="details-grid">
+            <div class="detail-item">
+                <span>Мекен жайы</span>
+                <p>«Эсмиральда» мейрамханасы</p>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=Esmeralda+Restaurant+Astana" target="_blank" class="maps-link">Бауыржан Момышұлы көшесі, 24/7</a>
+            </div>
+            <div class="detail-item">
+                <span>Күні</span>
+                <p>28 маусым, 2026 жыл</p>
+            </div>
+            <div class="detail-item">
+                <span>Басталуы</span>
+                <p>сағат 14:00</p>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <p class="hosts">Той иелері: балалары мен немерелері</p>
+        </div>
+
+        <!-- RSVP Section -->
+        <div class="rsvp-section">
+            <h2 class="rsvp-title">Қатысуды растау</h2>
+            <div class="form-wrapper">
+                <iframe 
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSdBW8vCQ1Fd212JJ32bcAsY0lZLXTeL98DSFXYWj5zvC3mwJw/viewform?embedded=true" 
+                    width="100%" 
+                    height="900" 
+                    frameborder="0" 
+                    marginheight="0" 
+                    marginwidth="0"
+                    loading="lazy">
+                    Загрузка...
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
